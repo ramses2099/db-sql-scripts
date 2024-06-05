@@ -15,3 +15,6 @@
 
 ## What is data transformation?
 ### Data transformation is the process of changing the data’s format, structure, or values. 
+
+### Long data is data where each row contains a single data point for a particular item. 
+
