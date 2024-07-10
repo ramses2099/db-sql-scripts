@@ -277,12 +277,14 @@ SELECT C.Title, COUNT(G.Id) AS StudentCount
 FROM Course C
 LEFT JOIN Grade G ON C.Code = G.Code
 GROUP BY C.Title;
+
 -- Find all students who scored higher than the average mark in any course:
 SELECT DISTINCT S.First, S.Last
 FROM Student S
 JOIN Grade G ON S.Id = G.Id
 JOIN (SELECT Code, AVG(Mark) AS AvgMark FROM Grade GROUP BY Code) A ON G.Code = A.Code
 WHERE G.Mark > A.AvgMark;
+
 -- Find all students who took both Programming courses (PR1 and PR2):
 SELECT S.First, S.Last
 FROM Student S
@@ -297,6 +299,7 @@ SELECT C.Title
 FROM Course C
 LEFT JOIN Grade G ON C.Code = G.Code
 WHERE G.Code IS NULL;
+
 -- List all courses and the names of the students who got the highest mark in each course:
 SELECT C.Title, S.First, S.Last, G.Mark
 FROM Course C
